@@ -1,0 +1,16 @@
+C:\Users\MohammadsadeghSaeima\Desktop\Project\ProjectXYZ\obj\Debug\ProjectXYZ.csprojAssemblyReference.cache
+C:\Users\MohammadsadeghSaeima\Desktop\Project\ProjectXYZ\obj\Debug\timesheetRecordSaving.AddRecord.resources
+C:\Users\MohammadsadeghSaeima\Desktop\Project\ProjectXYZ\obj\Debug\timesheetRecordSaving.Form1.resources
+C:\Users\MohammadsadeghSaeima\Desktop\Project\ProjectXYZ\obj\Debug\timesheetRecordSaving.Properties.Resources.resources
+C:\Users\MohammadsadeghSaeima\Desktop\Project\ProjectXYZ\obj\Debug\timesheetRecordSaving.ShowRecords.resources
+C:\Users\MohammadsadeghSaeima\Desktop\Project\ProjectXYZ\obj\Debug\ProjectXYZ.csproj.GenerateResource.cache
+C:\Users\MohammadsadeghSaeima\Desktop\Project\ProjectXYZ\obj\Debug\ProjectXYZ.csproj.CoreCompileInputs.cache
+C:\Users\MohammadsadeghSaeima\Desktop\Project\ProjectXYZ\obj\Debug\timesheetRecordSaving.exe
+C:\Users\MohammadsadeghSaeima\Desktop\Project\ProjectXYZ\obj\Debug\timesheetRecordSaving.pdb
+C:\Users\MohammadsadeghSaeima\Desktop\Project\ProjectXYZ\bin\Debug\timesheetRecordSaving.exe.config
+C:\Users\MohammadsadeghSaeima\Desktop\Project\ProjectXYZ\bin\Debug\timesheetRecordSaving.exe
+C:\Users\MohammadsadeghSaeima\Desktop\Project\ProjectXYZ\bin\Debug\timesheetRecordSaving.pdb
+C:\Users\MohammadsadeghSaeima\Desktop\Project\ProjectXYZ\obj\Debug\timesheetRecordSaving.Modify.resources
+C:\Users\MohammadsadeghSaeima\Desktop\Project\ProjectXYZ\obj\Debug\timesheetRecordSaving.Login.resources
+C:\Users\MohammadsadeghSaeima\Desktop\Project\ProjectXYZ\obj\Debug\timesheetRecordSaving.Group_Forming.resources
+C:\Users\MohammadsadeghSaeima\Desktop\Project\ProjectXYZ\obj\Debug\timesheetRecordSaving.ShowAllRecords.resources
