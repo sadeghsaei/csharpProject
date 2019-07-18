@@ -34,8 +34,6 @@
             this.textBoxCalendar = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBoxIVP = new System.Windows.Forms.ComboBox();
-            this.tivpBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.xYZ_Travel_AgencyDataSet = new timesheetRecordSaving.XYZ_Travel_AgencyDataSet();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -46,12 +44,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.buttonFind = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.t_ivpTableAdapter = new timesheetRecordSaving.XYZ_Travel_AgencyDataSetTableAdapters.t_ivpTableAdapter();
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.tivpBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xYZ_Travel_AgencyDataSet)).BeginInit();
+            this.xYZ_Travel_AgencyDataSet = new timesheetRecordSaving.XYZ_Travel_AgencyDataSet();
+            this.xYZTravelAgencyDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tivpBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.t_ivpTableAdapter = new timesheetRecordSaving.XYZ_Travel_AgencyDataSetTableAdapters.t_ivpTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xYZ_Travel_AgencyDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xYZTravelAgencyDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tivpBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxAddress
@@ -92,7 +94,7 @@
             // comboBoxIVP
             // 
             this.comboBoxIVP.DataSource = this.tivpBindingSource;
-            this.comboBoxIVP.DisplayMember = "place";
+            this.comboBoxIVP.DisplayMember = "name";
             this.comboBoxIVP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxIVP.FormattingEnabled = true;
             this.comboBoxIVP.Location = new System.Drawing.Point(146, 196);
@@ -100,16 +102,6 @@
             this.comboBoxIVP.Size = new System.Drawing.Size(131, 21);
             this.comboBoxIVP.TabIndex = 17;
             this.comboBoxIVP.ValueMember = "ivp_id";
-            // 
-            // tivpBindingSource
-            // 
-            this.tivpBindingSource.DataMember = "t_ivp";
-            this.tivpBindingSource.DataSource = this.xYZ_Travel_AgencyDataSet;
-            // 
-            // xYZ_Travel_AgencyDataSet
-            // 
-            this.xYZ_Travel_AgencyDataSet.DataSetName = "XYZ_Travel_AgencyDataSet";
-            this.xYZ_Travel_AgencyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label4
             // 
@@ -192,13 +184,28 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // t_ivpTableAdapter
-            // 
-            this.t_ivpTableAdapter.ClearBeforeFill = true;
-            // 
             // errorProvider2
             // 
             this.errorProvider2.ContainerControl = this;
+            // 
+            // xYZ_Travel_AgencyDataSet
+            // 
+            this.xYZ_Travel_AgencyDataSet.DataSetName = "XYZ_Travel_AgencyDataSet";
+            this.xYZ_Travel_AgencyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // xYZTravelAgencyDataSetBindingSource
+            // 
+            this.xYZTravelAgencyDataSetBindingSource.DataSource = this.xYZ_Travel_AgencyDataSet;
+            this.xYZTravelAgencyDataSetBindingSource.Position = 0;
+            // 
+            // tivpBindingSource
+            // 
+            this.tivpBindingSource.DataMember = "t_ivp";
+            this.tivpBindingSource.DataSource = this.xYZ_Travel_AgencyDataSet;
+            // 
+            // t_ivpTableAdapter
+            // 
+            this.t_ivpTableAdapter.ClearBeforeFill = true;
             // 
             // Modify
             // 
@@ -222,10 +229,11 @@
             this.Name = "Modify";
             this.Text = "Modify";
             this.Load += new System.EventHandler(this.Modify_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.tivpBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xYZ_Travel_AgencyDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xYZ_Travel_AgencyDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xYZTravelAgencyDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tivpBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,9 +256,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button buttonFind;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.BindingSource xYZTravelAgencyDataSetBindingSource;
         private XYZ_Travel_AgencyDataSet xYZ_Travel_AgencyDataSet;
         private System.Windows.Forms.BindingSource tivpBindingSource;
         private XYZ_Travel_AgencyDataSetTableAdapters.t_ivpTableAdapter t_ivpTableAdapter;
-        private System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }

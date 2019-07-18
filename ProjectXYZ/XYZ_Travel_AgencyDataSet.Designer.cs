@@ -281,7 +281,7 @@ namespace timesheetRecordSaving {
             
             private global::System.Data.DataColumn columnivp_id;
             
-            private global::System.Data.DataColumn columnplace;
+            private global::System.Data.DataColumn columnname;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -326,9 +326,9 @@ namespace timesheetRecordSaving {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn placeColumn {
+            public global::System.Data.DataColumn nameColumn {
                 get {
-                    return this.columnplace;
+                    return this.columnname;
                 }
             }
             
@@ -369,11 +369,11 @@ namespace timesheetRecordSaving {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public t_ivpRow Addt_ivpRow(string ivp_id, string place) {
+            public t_ivpRow Addt_ivpRow(int ivp_id, string name) {
                 t_ivpRow rowt_ivpRow = ((t_ivpRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ivp_id,
-                        place};
+                        name};
                 rowt_ivpRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowt_ivpRow);
                 return rowt_ivpRow;
@@ -381,7 +381,7 @@ namespace timesheetRecordSaving {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public t_ivpRow FindByivp_id(string ivp_id) {
+            public t_ivpRow FindByivp_id(int ivp_id) {
                 return ((t_ivpRow)(this.Rows.Find(new object[] {
                             ivp_id})));
             }
@@ -404,23 +404,21 @@ namespace timesheetRecordSaving {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnivp_id = base.Columns["ivp_id"];
-                this.columnplace = base.Columns["place"];
+                this.columnname = base.Columns["name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnivp_id = new global::System.Data.DataColumn("ivp_id", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnivp_id = new global::System.Data.DataColumn("ivp_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnivp_id);
-                this.columnplace = new global::System.Data.DataColumn("place", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnplace);
+                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnname);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnivp_id}, true));
                 this.columnivp_id.AllowDBNull = false;
                 this.columnivp_id.Unique = true;
-                this.columnivp_id.MaxLength = 12;
-                this.columnplace.AllowDBNull = false;
-                this.columnplace.MaxLength = 50;
+                this.columnname.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -563,9 +561,9 @@ namespace timesheetRecordSaving {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ivp_id {
+            public int ivp_id {
                 get {
-                    return ((string)(this[this.tablet_ivp.ivp_idColumn]));
+                    return ((int)(this[this.tablet_ivp.ivp_idColumn]));
                 }
                 set {
                     this[this.tablet_ivp.ivp_idColumn] = value;
@@ -574,13 +572,30 @@ namespace timesheetRecordSaving {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string place {
+            public string name {
                 get {
-                    return ((string)(this[this.tablet_ivp.placeColumn]));
+                    try {
+                        return ((string)(this[this.tablet_ivp.nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'t_ivp\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tablet_ivp.placeColumn] = value;
+                    this[this.tablet_ivp.nameColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnameNull() {
+                return this.IsNull(this.tablet_ivp.nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnameNull() {
+                this[this.tablet_ivp.nameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -744,32 +759,34 @@ namespace timesheetRecordSaving.XYZ_Travel_AgencyDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "t_ivp";
             tableMapping.ColumnMappings.Add("ivp_id", "ivp_id");
-            tableMapping.ColumnMappings.Add("place", "place");
+            tableMapping.ColumnMappings.Add("name", "name");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[t_ivp] WHERE (([ivp_id] = @Original_ivp_id) AND ([place] = @Or" +
-                "iginal_place))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[t_ivp] WHERE (([ivp_id] = @Original_ivp_id) AND ((@IsNull_name" +
+                " = 1 AND [name] IS NULL) OR ([name] = @Original_name)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ivp_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ivp_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_place", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "place", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ivp_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ivp_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[t_ivp] ([ivp_id], [place]) VALUES (@ivp_id, @place);\r\nSELECT i" +
-                "vp_id, place FROM t_ivp WHERE (ivp_id = @ivp_id)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[t_ivp] ([ivp_id], [name]) VALUES (@ivp_id, @name);\r\nSELECT ivp" +
+                "_id, name FROM t_ivp WHERE (ivp_id = @ivp_id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ivp_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ivp_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@place", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "place", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ivp_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ivp_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[t_ivp] SET [ivp_id] = @ivp_id, [place] = @place WHERE (([ivp_id] = " +
-                "@Original_ivp_id) AND ([place] = @Original_place));\r\nSELECT ivp_id, place FROM t" +
-                "_ivp WHERE (ivp_id = @ivp_id)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[t_ivp] SET [ivp_id] = @ivp_id, [name] = @name WHERE (([ivp_id] = @O" +
+                "riginal_ivp_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Origina" +
+                "l_name)));\r\nSELECT ivp_id, name FROM t_ivp WHERE (ivp_id = @ivp_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ivp_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ivp_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@place", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "place", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ivp_id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ivp_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_place", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "place", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ivp_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ivp_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ivp_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ivp_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -785,7 +802,7 @@ namespace timesheetRecordSaving.XYZ_Travel_AgencyDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ivp_id, place FROM dbo.t_ivp";
+            this._commandCollection[0].CommandText = "SELECT ivp_id, name FROM dbo.t_ivp";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -846,18 +863,15 @@ namespace timesheetRecordSaving.XYZ_Travel_AgencyDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_ivp_id, string Original_place) {
-            if ((Original_ivp_id == null)) {
-                throw new global::System.ArgumentNullException("Original_ivp_id");
+        public virtual int Delete(int Original_ivp_id, string Original_name) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ivp_id));
+            if ((Original_name == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_ivp_id));
-            }
-            if ((Original_place == null)) {
-                throw new global::System.ArgumentNullException("Original_place");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_place));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_name));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -879,18 +893,13 @@ namespace timesheetRecordSaving.XYZ_Travel_AgencyDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string ivp_id, string place) {
-            if ((ivp_id == null)) {
-                throw new global::System.ArgumentNullException("ivp_id");
+        public virtual int Insert(int ivp_id, string name) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ivp_id));
+            if ((name == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ivp_id));
-            }
-            if ((place == null)) {
-                throw new global::System.ArgumentNullException("place");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(place));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(name));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -912,30 +921,22 @@ namespace timesheetRecordSaving.XYZ_Travel_AgencyDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ivp_id, string place, string Original_ivp_id, string Original_place) {
-            if ((ivp_id == null)) {
-                throw new global::System.ArgumentNullException("ivp_id");
+        public virtual int Update(int ivp_id, string name, int Original_ivp_id, string Original_name) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ivp_id));
+            if ((name == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(ivp_id));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(name));
             }
-            if ((place == null)) {
-                throw new global::System.ArgumentNullException("place");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(place));
-            }
-            if ((Original_ivp_id == null)) {
-                throw new global::System.ArgumentNullException("Original_ivp_id");
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_ivp_id));
+            if ((Original_name == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_ivp_id));
-            }
-            if ((Original_place == null)) {
-                throw new global::System.ArgumentNullException("Original_place");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_place));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_name));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -957,8 +958,8 @@ namespace timesheetRecordSaving.XYZ_Travel_AgencyDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string place, string Original_ivp_id, string Original_place) {
-            return this.Update(Original_ivp_id, place, Original_ivp_id, Original_place);
+        public virtual int Update(string name, int Original_ivp_id, string Original_name) {
+            return this.Update(Original_ivp_id, name, Original_ivp_id, Original_name);
         }
     }
     

@@ -31,12 +31,19 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.displayAllRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileToDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupFormingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.displayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.displayAllRecordsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.inFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.displayGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fromFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fromDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +51,9 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.editToolStripMenuItem});
+            this.editToolStripMenuItem,
+            this.displayToolStripMenuItem,
+            this.groupingToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(746, 24);
@@ -55,9 +64,7 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addRecordToolStripMenuItem,
-            this.showRecordsToolStripMenuItem,
-            this.displayAllRecordsToolStripMenuItem,
-            this.groupFormingToolStripMenuItem,
+            this.fileToDatabaseToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -66,28 +73,21 @@
             // addRecordToolStripMenuItem
             // 
             this.addRecordToolStripMenuItem.Name = "addRecordToolStripMenuItem";
-            this.addRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addRecordToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.addRecordToolStripMenuItem.Text = "Add Record";
             this.addRecordToolStripMenuItem.Click += new System.EventHandler(this.AddRecordToolStripMenuItem_Click);
             // 
-            // showRecordsToolStripMenuItem
+            // fileToDatabaseToolStripMenuItem
             // 
-            this.showRecordsToolStripMenuItem.Name = "showRecordsToolStripMenuItem";
-            this.showRecordsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.showRecordsToolStripMenuItem.Text = "Display Records";
-            this.showRecordsToolStripMenuItem.Click += new System.EventHandler(this.ShowRecordsToolStripMenuItem_Click);
-            // 
-            // displayAllRecordsToolStripMenuItem
-            // 
-            this.displayAllRecordsToolStripMenuItem.Name = "displayAllRecordsToolStripMenuItem";
-            this.displayAllRecordsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.displayAllRecordsToolStripMenuItem.Text = "Display all records";
-            this.displayAllRecordsToolStripMenuItem.Click += new System.EventHandler(this.DisplayAllRecordsToolStripMenuItem_Click);
+            this.fileToDatabaseToolStripMenuItem.Name = "fileToDatabaseToolStripMenuItem";
+            this.fileToDatabaseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.fileToDatabaseToolStripMenuItem.Text = "File to Database";
+            this.fileToDatabaseToolStripMenuItem.Click += new System.EventHandler(this.FileToDatabaseToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -102,15 +102,76 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem1.Text = "Modify Record";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1_Click);
             // 
-            // groupFormingToolStripMenuItem
+            // displayToolStripMenuItem
             // 
-            this.groupFormingToolStripMenuItem.Name = "groupFormingToolStripMenuItem";
-            this.groupFormingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.groupFormingToolStripMenuItem.Text = "Group Forming";
+            this.displayToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.displayAllRecordsToolStripMenuItem1,
+            this.displayGroupsToolStripMenuItem});
+            this.displayToolStripMenuItem.Name = "displayToolStripMenuItem";
+            this.displayToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.displayToolStripMenuItem.Text = "Display";
+            // 
+            // displayAllRecordsToolStripMenuItem1
+            // 
+            this.displayAllRecordsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inFileToolStripMenuItem,
+            this.inDBToolStripMenuItem});
+            this.displayAllRecordsToolStripMenuItem1.Name = "displayAllRecordsToolStripMenuItem1";
+            this.displayAllRecordsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.displayAllRecordsToolStripMenuItem1.Text = "Display All Records";
+            // 
+            // inFileToolStripMenuItem
+            // 
+            this.inFileToolStripMenuItem.Name = "inFileToolStripMenuItem";
+            this.inFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inFileToolStripMenuItem.Text = "From Text File";
+            this.inFileToolStripMenuItem.Click += new System.EventHandler(this.InFileToolStripMenuItem_Click);
+            // 
+            // inDBToolStripMenuItem
+            // 
+            this.inDBToolStripMenuItem.Name = "inDBToolStripMenuItem";
+            this.inDBToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inDBToolStripMenuItem.Text = "From Database";
+            this.inDBToolStripMenuItem.Click += new System.EventHandler(this.InDBToolStripMenuItem_Click);
+            // 
+            // displayGroupsToolStripMenuItem
+            // 
+            this.displayGroupsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fromFileToolStripMenuItem,
+            this.fromDatabaseToolStripMenuItem});
+            this.displayGroupsToolStripMenuItem.Name = "displayGroupsToolStripMenuItem";
+            this.displayGroupsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.displayGroupsToolStripMenuItem.Text = "Display Groups";
+            // 
+            // fromFileToolStripMenuItem
+            // 
+            this.fromFileToolStripMenuItem.Name = "fromFileToolStripMenuItem";
+            this.fromFileToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.fromFileToolStripMenuItem.Text = "From File";
+            // 
+            // fromDatabaseToolStripMenuItem
+            // 
+            this.fromDatabaseToolStripMenuItem.Name = "fromDatabaseToolStripMenuItem";
+            this.fromDatabaseToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.fromDatabaseToolStripMenuItem.Text = "From Database";
+            // 
+            // groupingToolStripMenuItem
+            // 
+            this.groupingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsToolStripMenuItem});
+            this.groupingToolStripMenuItem.Name = "groupingToolStripMenuItem";
+            this.groupingToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.groupingToolStripMenuItem.Text = "Grouping";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Text = "Group Settings";
             // 
             // Form1
             // 
@@ -134,12 +195,19 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addRecordToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showRecordsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem displayAllRecordsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem groupFormingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fileToDatabaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem displayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem displayAllRecordsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem inFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inDBToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem displayGroupsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fromFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fromDatabaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem groupingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
     }
 }
 

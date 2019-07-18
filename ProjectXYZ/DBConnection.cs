@@ -50,8 +50,6 @@ namespace timesheetRecordSaving
             }
         }
 
-
-
         public int recordCount()
         {
             SqlConnection conn = new SqlConnection(ConString);
@@ -61,11 +59,11 @@ namespace timesheetRecordSaving
             return count;
         }
 
-        public int recordCount(string RegisterationID)
+        public int recordCount(int ivp_id)
         {
             SqlConnection conn = new SqlConnection(ConString);
             conn.Open();
-            SqlCommand comm = new SqlCommand("SELECT COUNT(*) FROM t_userinfo WHERE RegisterationID = '" + RegisterationID + "'", conn);
+            SqlCommand comm = new SqlCommand("SELECT COUNT(*) FROM t_userinfo WHERE ivp_id = '" + ivp_id + "'", conn);
             Int32 count = (Int32)comm.ExecuteScalar();
             return count;
         }
@@ -114,6 +112,73 @@ namespace timesheetRecordSaving
             }
         }
 
+        public Record[] selectCountRecords(int ivp_id)
+        {
+            string query = "select * from t_userinfo where ivp_id = '" + ivp_id + "'";
+            Record[] result = new Record[recordCount(ivp_id)];
+            int i = 0;
+            using (SqlConnection sqlcon1 = new SqlConnection(ConString))
+            {
+                sqlcon1.Open();
+                using (SqlCommand sql1 = new SqlCommand(query, (sqlcon1)))
+                {
+                    using (SqlDataReader reader = sql1.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                result[i++].registrationID = (string)reader[0];
+                                result[i++].name = (string)reader[1];
+                                result[i++].address = (string)reader[2];
+                                result[i++].ivp_id = (int)reader[3];
+                                result[i++].date = (DateTime)reader[4];
+                            }
+                        }
+                        else
+                        {
+                            result[i].registrationID = "0";
+                        }
+                        return result;
+                    }
+                }
+            }
+        }
+
+        public int findIVP(string place)
+        {
+            string newplace = place.Substring(1);
+            string query = "select ivp_id from t_ivp where name = '" + newplace + "'";
+            int result = -1;
+            using (SqlConnection sqlcon1 = new SqlConnection(ConString))
+            {
+                sqlcon1.Open();
+                using (SqlCommand sql1 = new SqlCommand(query, (sqlcon1)))
+                {
+                    using (SqlDataReader reader = sql1.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            result = (int)reader[0];
+                        }
+                        return result;
+                        
+
+                    }
+                }
+            }
+        }
+
+        public DataSet ShowAllRecordsFromDB()
+        {
+            var select = "SELECT RegisterationID, t_userinfo.name AS Client_Name, address as Client_Address, t_ivp.name as Interested_Plan, date as Desired_Date FROM dbo.t_userinfo INNER JOIN  t_ivp ON t_ivp.ivp_id = t_userinfo.ivp_id";
+            var c = new SqlConnection(ConString); // Your Connection String here
+            var dataAdapter = new SqlDataAdapter(select, c);
+            var commandBuilder = new SqlCommandBuilder(dataAdapter);
+            var ds = new DataSet();
+            dataAdapter.Fill(ds);
+            return ds;
+        }
 
     }
 }

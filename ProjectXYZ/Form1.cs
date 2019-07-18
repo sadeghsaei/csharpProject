@@ -35,30 +35,7 @@ namespace timesheetRecordSaving
 
         private void formAddRecord_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //throw new NotImplementedException();
             formAddRecord = null;
-        }
-
-        ShowRecords formShowRecord;
-        private void ShowRecordsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (formShowRecord == null)
-            {
-                formShowRecord = new ShowRecords();
-                formShowRecord.MdiParent = this;
-                formShowRecord.FormClosed += new FormClosedEventHandler(formShowRecord_FormClosed);
-                formShowRecord.Show();
-            }
-            else
-            {
-                formShowRecord.Activate();
-            }
-        }
-
-        private void formShowRecord_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //throw new NotImplementedException();
-            formShowRecord = null;
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -80,7 +57,6 @@ namespace timesheetRecordSaving
             {
                 modifyForm.Activate();
             }
-
         }
 
         private void ModifyForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -103,25 +79,67 @@ namespace timesheetRecordSaving
             }
         }
 
-        ShowAllRecords showAll;
-        private void DisplayAllRecordsToolStripMenuItem_Click(object sender, EventArgs e)
+        FileToDB filetodb;
+        private void FileToDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (showAll == null)
+            if (filetodb == null)
             {
-                showAll = new ShowAllRecords();
-                showAll.MdiParent = this;
-                showAll.FormClosed += ShowAll_FormClosed; ;
-                showAll.Show();
+                filetodb = new FileToDB();
+                filetodb.MdiParent = this;
+                filetodb.FormClosed += Filetodb_FormClosed;
+                filetodb.Show();
             }
             else
             {
-                showAll.Activate();
+                filetodb.Activate();
             }
         }
 
-        private void ShowAll_FormClosed(object sender, FormClosedEventArgs e)
+        private void Filetodb_FormClosed(object sender, FormClosedEventArgs e)
         {
-            showAll = null;
+            filetodb = null;
+        }
+
+        DisplayAllFromFile DisplayFromFile;
+        private void InFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (DisplayFromDB == null)
+            {
+                DisplayFromFile = new DisplayAllFromFile();
+                DisplayFromFile.MdiParent = this;
+                DisplayFromFile.FormClosed += DisplayFromFile_FormClosed; ;
+                DisplayFromFile.Show();
+            }
+            else
+            {
+                DisplayFromFile.Activate();
+            }
+        }
+
+        private void DisplayFromFile_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DisplayFromFile = null;
+        }
+
+        DisplayAllFromDB DisplayFromDB;
+        private void InDBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (DisplayFromDB == null)
+            {
+                DisplayFromDB = new DisplayAllFromDB();
+                DisplayFromDB.MdiParent = this;
+                DisplayFromDB.FormClosed += DisplayFromDB_FormClosed;
+                DisplayFromDB.Show();
+            }
+            else
+            {
+                DisplayFromDB.Activate();
+            }
+        }
+
+        private void DisplayFromDB_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DisplayFromDB = null;
         }
     }
 }

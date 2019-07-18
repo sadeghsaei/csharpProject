@@ -46,7 +46,6 @@ namespace timesheetRecordSaving
                                         .Replace('I', 'R')
                                         .Replace('l', 'K')
                                         .TrimEnd('=');
-                Console.WriteLine(id);
 
                 newRecord.registrationID = id;
                 newRecord.name = textBoxName.Text;
